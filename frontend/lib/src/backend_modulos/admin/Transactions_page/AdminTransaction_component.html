@@ -1,0 +1,245 @@
+<br><br><br>
+<section id="trans_log-section" class="page text-center">
+    <div class="page-header-wrapper">
+        <div class="container">
+            <div class="page-header text-center">
+                <h2>Página Transações</h2>
+            </div>
+        </div>
+    </div>
+
+    <select [(ngModel)]="team_analyse">
+        <option *ngFor="let team of teams" value="{{team.name}}">{{team.name}}</option>
+    </select>
+
+    <btn class="btn-group">
+        <btn class="btn btn-primary" (click)="GetAllTransactions()">Mostrar todas as Transações</btn>
+        <btn class="btn btn-primary" (click)="GetAllBuys()" >Mostrar todas as Compras</btn>
+        <btn class="btn btn-primary" (click)="GetAllTeamTransactions()">Transações de Equipa {{team_analyse}}</btn>
+        <btn class="btn btn-primary" (click)="GetAllTeamBuys()">Compras de Equipa {{team_analyse}}</btn>
+    </btn>
+
+
+    <a *ngIf="show_all_transactions">
+        <div class="box-wrapper">
+            <div class="table-responsive">
+
+                <table class="table table-striped table-bordered">
+                    <caption>Todas as Transações</caption>
+                    <thead>
+                    <tr class="bg-primary">
+                        <th class="col-xs-2" style="text-align: center">De</th>
+                        <th class="col-xs-2" style="text-align: center">Para</th>
+                        <th class="col-xs-2" style="text-align: center">Valor</th>
+                        <th class="col-xs-2" style="text-align: center">Descrição</th>
+                        <th class="col-xs-2" style="text-align: center">Timestamp</th>
+                        <th class="col-xs-2" style="text-align: center">Indivíduo</th>
+                        <th class="col-xs-2" style="text-align: center">Dinheiro</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.sourceTeam}}">{{transaction.sourceTeam}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.destTeam}}">{{transaction.destTeam}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.amount}}">{{transaction.amount}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.description}}">{{transaction.description}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.timestamp}}">{{transaction.timestamp}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.user.name}}">{{transaction.user.name}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.sourceTeamCash}}">{{transaction.sourceTeamCash}}</output>
+                        </td>
+                    </tr>
+                    </tbody>
+
+
+                </table>
+
+            </div>
+        </div>
+    </a>
+
+    <a *ngIf="show_all_buys">
+        <div class="box-wrapper">
+            <div class="table-responsive">
+
+                <table class="table table-striped table-bordered">
+                    <caption>Todas as Compras</caption>
+                    <thead>
+                    <tr class="bg-primary">
+                        <th class="col-xs-2" style="text-align: center">Opções</th>
+                        <th class="col-xs-2" style="text-align: center">Equipa</th>
+                        <th class="col-xs-2" style="text-align: center">Produto</th>
+                        <th class="col-xs-2" style="text-align: center">Quantidade</th>
+                        <th class="col-xs-2" style="text-align: center">Preço</th>
+                        <th class="col-xs-2" style="text-align: center">Indivíduo</th>
+                        <th class="col-xs-2" style="text-align: center">Dinheiro</th>
+                        <th class="col-xs-2" style="text-align: center">Tempo</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases">
+                               <!-- <btn class="btn btn-danger btn-xs" (click)="ConfirmRemove(purchase)">-</btn> -->
+                                Unplugged
+                            </output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.teamName}}">{{purchase.teamName}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.product.name}}">{{purchase.product.name}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.quantity}}">{{purchase.quantity}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.amount}}">{{purchase.amount}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.user}}">{{purchase.user}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.sourceTeamCash}}">{{purchase.sourceTeamCash}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.timestamp}}">{{purchase.timestamp}}</output>
+                        </td>
+                    </tr>
+                    </tbody>
+
+
+                </table>
+
+            </div>
+        </div>
+    </a>
+
+    <a *ngIf="show_all_team_transactions">
+        <div class="box-wrapper">
+            <div class="table-responsive">
+
+                <table class="table table-striped table-bordered">
+                    <caption>Transações da Equipa {{team_analyse}}</caption>
+                    <thead>
+                    <tr class="bg-primary">
+                        <th class="col-xs-2" style="text-align: center">De</th>
+                        <th class="col-xs-2" style="text-align: center">Para</th>
+                        <th class="col-xs-2" style="text-align: center">Valor</th>
+                        <th class="col-xs-2" style="text-align: center">Descrição</th>
+                        <th class="col-xs-2" style="text-align: center">Timestamp</th>
+                        <th class="col-xs-2" style="text-align: center">Indivíduo</th>
+                        <th class="col-xs-2" style="text-align: center">Dinheiro</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.sourceTeam}}">{{transaction.sourceTeam}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.destTeam}}">{{transaction.destTeam}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.amount}}">{{transaction.amount}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.description}}">{{transaction.description}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.timestamp}}">{{transaction.timestamp}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.user.name}}">{{transaction.user.name}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let transaction of transactions" value="{{transaction.sourceTeamCash}}">{{transaction.sourceTeamCash}}</output>
+                        </td>
+                    </tr>
+                    </tbody>
+
+
+                </table>
+
+            </div>
+        </div>
+
+       <!-- <line-chart></line-chart> -->
+    </a>
+
+    <a *ngIf="show_all_team_buys">
+        <div class="box-wrapper">
+            <div class="table-responsive">
+
+                <table class="table table-striped table-bordered">
+                    <caption>Compras da Equipa {{team_analyse}}</caption>
+                    <thead>
+                    <tr class="bg-primary">
+                        <th class="col-xs-2" style="text-align: center">Opções</th>
+                        <th class="col-xs-2" style="text-align: center">Equipa</th>
+                        <th class="col-xs-2" style="text-align: center">Produto</th>
+                        <th class="col-xs-2" style="text-align: center">Quantidade</th>
+                        <th class="col-xs-2" style="text-align: center">Preço</th>
+                        <th class="col-xs-2" style="text-align: center">Indivíduo</th>
+                        <th class="col-xs-2" style="text-align: center">Dinheiro</th>
+                        <th class="col-xs-2" style="text-align: center">Tempo</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases">
+                                Unplugged
+                            </output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.teamName}}">{{purchase.teamName}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.product.name}}">{{purchase.product.name}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.quantity}}">{{purchase.quantity}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.amount}}">{{purchase.amount}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.user}}">{{purchase.user}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.sourceTeamCash}}">{{purchase.sourceTeamCash}}</output>
+                        </td>
+                        <td class="col-xs-2">
+                            <output *ngFor="let purchase of purchases" value="{{purchase.timestamp}}">{{purchase.timestamp}}</output>
+                        </td>
+                    </tr>
+                    </tbody>
+
+
+                </table>
+
+            </div>
+        </div>
+
+       <!-- <line-chart></line-chart> -->
+    </a>
+
+
+</section>

@@ -1,0 +1,43 @@
+<section id="transactions-section" class="page text-center">
+    <div class="page-header-wrapper">
+        <div class="container">
+            <div class="page-header text-center">
+                <h2>Transações</h2>
+            </div>
+        </div>
+    </div>
+    <div class="box-wrapper" [hidden]="submitted">
+        <form class="form-inline" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-2">
+                <div class="btn-group">
+                    <a id="border1"  class="btn btn-default btn-md disabled" role="button"> Para: </a>
+                    <select [(ngModel)]="transaction.destTeam" class="form-control">
+                        <option *ngFor="let team of teams" value="{{team.name}}">{{team.name}}</option>
+                    </select>
+                    <span class="border border-white"></span>
+                </div>
+                <input type="text" [(ngModel)]="transaction.description" class="form-control" id="border" placeholder=" Descrição ">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <input required type="number" class="form-control" id="border2" placeholder=" Preço " [(ngModel)]="transaction.amount" min="0">
+                <span class="border border-white"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Confirme a Transferência</button>
+        </form>
+    </div>
+    <div [hidden]="!submitted">
+        <div *ngIf="success==true">
+            <div class="alert alert-success" role="alert">
+                Transação realizada com sucesso!
+            </div>
+            <button (click)="submitted=false" class="btn btn-primary">Realizar outra Transferência</button>
+        </div>
+        <div *ngIf="success==false">
+            <div class="alert alert-danger" role="alert">
+                Erro durante a transação.Motivo:{{out}}.
+            </div>
+            <button (click)="submitted=false" class="btn btn-primary">Refazer</button>
+        </div>
+    </div>
+
+</section>

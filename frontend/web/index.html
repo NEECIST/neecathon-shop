@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script>
+    (function () {
+      var m = document.location.pathname.match(/^(\/[-\w]+)+\/web($|\/)/);
+      document.write('<base href="' + (m ? m[0] : '/') + '" />');
+    }());
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NEECATHON</title>
+  <meta name="description" content="NEECATHON">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../assets/styles/fonts/fonts.css">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.ico">
+  <script defer src="main.dart.js"></script>
+  <script src="../assets/vendor/jquery/jquery.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+  <script src="../assets/scripts/store.js"></script>
+</head>
+<body>
+<my-app></my-app>
+</body>
+</html>

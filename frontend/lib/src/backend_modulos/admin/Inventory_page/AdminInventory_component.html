@@ -1,0 +1,154 @@
+<br><br><br>
+<section id="trans_log-section" class="page text-center">
+    <div class="page-header-wrapper">
+        <div class="container">
+            <div class="page-header text-center">
+                <h2>Página Inventário</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-wrapper" [hidden]="submitted">
+        <div class="table-responsive">
+
+            <table class="table table-striped table-bordered">
+                <caption>Adicionar Novo Produto</caption>
+                <thead>
+                <tr class="bg-primary">
+                    <th class="col-xs-2" style="text-align: center">Imagem</th>
+                    <th class="col-xs-2" style="text-align: center">Nome</th>
+                    <th class="col-xs-2" style="text-align: center">Descrição</th>
+                    <th class="col-xs-2" style="text-align: center">Quantidade</th>
+                    <th class="col-xs-2" style="text-align: center">Preço</th>
+                    <th class="col-xs-2" style="text-align: center">ID</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td class="col-xs-2">
+                        <input type="text"  [(ngModel)]="product.image_path" placeholder="Url Imagem">
+                    </td>
+                    <td class="col-xs-2">
+                        <input type="text"  [(ngModel)]="product.name" placeholder="Nome Produto">
+                    </td>
+                    <td class="col-xs-2">
+                        <input type="text"  [(ngModel)]="product.description" placeholder="Descrição">
+                    </td>
+                    <td class="col-xs-2">
+                        <input type="number" min="1" [(ngModel)]="product.quantity" placeholder="Quantidade disponível">
+                    </td>
+                    <td class="col-xs-2">
+                        <input type="number" min="1" [(ngModel)]="product.price" placeholder="Preço Neecoins">
+                    </td>
+                    <td class="col-xs-2">
+                        <output>Gerado Automaticamente</output>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+        <btn class="btn btn-success" (click)="ConfirmChange()">Adicionar Loja</btn>
+    </div>
+    <div [hidden]="!submitted">
+        <div *ngIf="success==true">
+            <div class="alert alert-success" role="alert">
+                {{out}}
+            </div>
+            <button (click)="submitted=false" class="btn btn-primary">Adicionar outro produto na loja</button>
+        </div>
+        <div *ngIf="success==false">
+            <div class="alert alert-danger" role="alert">
+                Erro.Motivo:{{out}}.
+            </div>
+            <button (click)="submitted=false" class="btn btn-primary">Refazer</button>
+        </div>
+    </div>
+
+    <div class="box-wrapper">
+        <div class="table-responsive">
+
+            <table class="table table-striped table-bordered">
+                <caption>Lista Produtos existentes</caption>
+                <thead>
+                <tr class="bg-primary">
+                    <th class="col-xs-2" style="text-align: center">Imagem</th>
+                    <th class="col-xs-2" style="text-align: center">Nome</th>
+                    <th class="col-xs-2" style="text-align: center">Descrição</th>
+                    <th class="col-xs-2" style="text-align: center">Quantidade</th>
+                    <th class="col-xs-2" style="text-align: center">Preço</th>
+                    <th class="col-xs-2" style="text-align: center">Opções</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td class="col-xs-2">
+                        <output *ngFor="let product of products" value="{{product.image_path}}">{{product.image_path}}</output>
+                    </td>
+                    <td class="col-xs-2">
+                        <output *ngFor="let product of products" value="{{product.name}}">{{product.name}}</output>
+                    </td>
+                    <td class="col-xs-2">
+                        <output *ngFor="let product of products" value="{{product.description}}">{{product.description}}</output>
+                    </td>
+                    <td class="col-xs-2">
+                        <output *ngFor="let product of products" value="{{product.quantity}}">{{product.quantity}}</output>
+                    </td>
+                    <td class="col-xs-2">
+                        <output *ngFor="let product of products" value="{{product.price}}">{{product.price}}</output>
+                    </td>
+                    <td class="col-xs-2">
+                        <output *ngFor="let product of products">
+                            <btn class="btn btn-success btn-xs" (click)="UpdateChange(true,product)">+</btn>
+                            <btn class="btn btn-danger btn-xs" (click)="UpdateChange(false,product)">-</btn>
+                        </output>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr class="bg-primary">
+                    <th class="col-xs-2" style="text-align: center">Nome</th>
+                    <th class="col-xs-6" style="text-align: center">Dinheiro Equipa</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-xs-2" style="text-align: center">
+                            <output *ngFor="let team of teams" value="{{team.name}}">{{team.name}}</output>
+                        </td>
+                        <td class="col-xs-6" style="text-align: center">
+                            <div class="row" *ngFor="let team of teams"  style="text-align: center">
+                                <div *ngIf="changeVal!=true || selected!=team.name" class="col-md-6"  style="text-align: center">
+                                    <output value="{{team.cash}}">{{team.cash}}</output>
+                                </div>
+                                <div *ngIf="changeVal!=true || selected!=team.name" class="col-md-6"  style="text-align: center">
+                                    <span (click)="update(team.name)"><i class="fa fa-pencil"></i></span>
+                                </div>
+                                <div *ngIf="changeVal && selected==team.name" class="col-md-6"  style="text-align: center">
+                                    <input type="text" [(ngModel)]="cash" class="form-control" id="border" placeholder="{{team.cash}}">
+                                </div>
+                                <div *ngIf="changeVal && selected==team.name" class="col-md-6"  style="text-align: center">
+                                    <button (click) = "updateCash(team)">Save</button>
+                                </div>
+                            </div> 
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+
+<br><br>
+
+</section>

@@ -1,0 +1,37 @@
+<div id="home" class="home">
+    <div class="main">
+        <header id="header" class="header-main">
+            <nav id="main-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand page-scroll" [routerLink]="RoutePaths.compras.toUrl()" [routerLinkActive]="'active-route'">NEECATHON</a>
+                        <a class="navbar-brand page-scroll" style="font-size: medium;padding-left: 68px;padding-top: 27px">Market by:</a>
+                        <img src="../../../../assets/images/deloittenav2.png" style="padding-top: 20px;padding-left:1px">
+
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                          <!-- <li><a class="navbar-brand-coin" *ngIf="loggedin==true"><img src="../../../../assets/images/shoppingcart.png" width="25" height="25" class="d-inline-block align-top" alt=""></a></li> <a target="_blank" href="https://icons8.com/icons/set/shopping-cart--v1">Shopping Cart</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+                            <li><a class="page-scroll" *ngIf="loggedin==true">Bem vindo,{{team?.name}}</a></li>
+                            <li><a class="page-scroll" [routerLink]="RoutePaths.compras.toUrl()" [routerLinkActive]="'active-route'">Home</a></li>
+                            <li><a *ngIf="team.isAdmin==true" class="navbar-link" [routerLink]="RoutePaths.admin_inventory.toUrl()" [routerLinkActive]="'active-route'">Inventário</a></li>
+                            <li><a *ngIf="team.isAdmin==true" class="navbar-link" [routerLink]="RoutePaths.admin_transaction.toUrl()" [routerLinkActive]="'active-route'">Transações</a></li>
+                          <!--  <li><a *ngIf="team.isAdmin==true" class="navbar-link" [routerLink]="RoutePaths.register.toUrl()" [routerLinkActive]="'active-route'">Criar Equipa</a></li> -->
+                            <li *ngIf="loggedin==false"><a class="navbar-link" [routerLink]="RoutePaths.login.toUrl()" [routerLinkActive]="'active-route'">Login</a></li>
+                            <li><a *ngIf="loggedin==true" class="navbar-link" (click)="ClearLog()">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+</div>
+
+<router-outlet [routes]="Routes.all"></router-outlet>
+
+

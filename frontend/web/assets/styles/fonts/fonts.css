@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    src:
+        local('Lato Light'),
+        local('Lato-Light'),
+                url('Lato_300.eot?#iefix') format('embedded-opentype'),
+                url('Lato_300.woff') format('woff'),
+                url('Lato_300.woff2') format('woff2'),
+                url('Lato_300.svg#Lato') format('svg'),
+                url('Lato_300.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        local('Lato Regular'),
+        local('Lato-Regular'),
+                url('Lato_400.eot?#iefix') format('embedded-opentype'),
+                url('Lato_400.woff') format('woff'),
+                url('Lato_400.woff2') format('woff2'),
+                url('Lato_400.svg#Lato') format('svg'),
+                url('Lato_400.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        local('Roboto'),
+        local('Roboto-Regular'),
+                url('Roboto_400.eot?#iefix') format('embedded-opentype'),
+                url('Roboto_400.woff') format('woff'),
+                url('Roboto_400.woff2') format('woff2'),
+                url('Roboto_400.svg#Roboto') format('svg'),
+                url('Roboto_400.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src:
+        local('Roboto Medium'),
+        local('Roboto-Medium'),
+                url('Roboto_500.eot?#iefix') format('embedded-opentype'),
+                url('Roboto_500.woff') format('woff'),
+                url('Roboto_500.woff2') format('woff2'),
+                url('Roboto_500.svg#Roboto') format('svg'),
+                url('Roboto_500.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src:
+        local('Roboto Bold'),
+        local('Roboto-Bold'),
+                url('Roboto_700.eot?#iefix') format('embedded-opentype'),
+                url('Roboto_700.woff') format('woff'),
+                url('Roboto_700.woff2') format('woff2'),
+                url('Roboto_700.svg#Roboto') format('svg'),
+                url('Roboto_700.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Bitwise';
+    font-style: normal;
+    font-weight: 500;
+    src:
+            local('Bitwise'),
+            local('Bitwise-Regular'),
+            url('bitwise.eot?#iefix') format('embedded-opentype'),
+            url('bitwise.woff') format('woff'),
+            url('bitwise.svg#Roboto') format('svg'),
+            url('bitwise.ttf') format('truetype');
+}

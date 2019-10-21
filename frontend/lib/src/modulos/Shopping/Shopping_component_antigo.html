@@ -1,0 +1,589 @@
+<section id="store" class="page">
+    <div class="page-header-wrapper">
+        <div class="container">
+            <div class="page-header text-center">
+                <h2>Compras</h2>
+            </div>
+        </div>
+    </div>
+    <div class="brand-coin" *ngIf="loggedin==true" [hidden]="submitted">
+        <img src="../../../../assets/images/coin64.png" width="64" height="64" class="d-inline-block align-top"> {{team.cash}} Neecoins
+    </div>
+    <div class="box-wrapper" [hidden]="submitted">
+        <form class="form-inline" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Categoria I</h3>
+                    </div>
+                </div>
+                <div class="row mb-30">
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Isto é um Led</p>
+                                </div>
+                                <img class="w-100 desc-img" src="../../../../assets/images/led.jpg" alt="Led">
+                            </div>
+                            <p class="text-center">Led</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('Led')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Isto é um ECG</p>
+                                </div>
+                                <img class="w-100 desc-img" src="../../../../assets/images/ECG.jpg"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">ECG</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('ECG')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Isto é um EMG</p>
+                                </div>
+                                <img class="w-100 desc-img" src="../../../../assets/images/EMG.jpg"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">EMG</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('EMG')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Isto é um ACC</p>
+                                </div>
+                                <img class="w-100 desc-img" src="../../../../assets/images/ACC.jpg"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">ACC</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('ACC')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse category-1-more">
+                    <div class="col-xs-12">
+                        <div class="row mb-30">
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Isto são cabos de arduino</p>
+                                        </div>
+                                        <img class="w-100 desc-img"
+                                             src="../../../../assets/images/ArduinoCables.jpg" alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Arduino Cables</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit"
+                                                (click)="Buy('ArduinoCables')">Comprar
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Isto são eletrode cables</p>
+                                        </div>
+                                        <img class="w-100 desc-img"
+                                             src="../../../../assets/images/EletrodeCables.jpg" alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Eletrode Cables</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit"
+                                                (click)="Buy('EletrodeCables')">Comprar
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Asuna</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="{{pic}}"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item7</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">
+                                            Comprar
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Descrição</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item8</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">
+                                            Comprar
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <a href=".category-1-more" data-toggle="collapse">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row category-1-more collapse in">
+                    <div class="col-sm-12 text-center">
+                        <a href=".category-1-more" data-toggle="collapse">Mais</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Categoria II</h3>
+                    </div>
+                </div>
+                <div class="row mb-30">
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Descrição</p>
+                                </div>
+                                <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">Item1</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Descrição</p>
+                                </div>
+                                <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">Item2</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Descrição</p>
+                                </div>
+                                <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">Item3</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Descrição</p>
+                                </div>
+                                <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">Item4</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse category-2-more">
+                    <div class="col-xs-12">
+                        <div class="row mb-30">
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Descrição</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item5</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Descrição</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item6</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Descrição</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item7</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Descrição</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item8</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <a href=".category-2-more" data-toggle="collapse">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row category-2-more collapse in">
+                    <div class="col-sm-12 text-center">
+                        <a href=".category-2-more" data-toggle="collapse">Mais</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Categoria III</h3>
+                    </div>
+                </div>
+                <div class="row mb-30">
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Descrição</p>
+                                </div>
+                                <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">Item1</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Descrição</p>
+                                </div>
+                                <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">Item2</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Descrição</p>
+                                </div>
+                                <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">Item3</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div style="border: 3px solid gray;">
+                            <div class="desc-container">
+                                <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                    <p>Descrição</p>
+                                </div>
+                                <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                     alt="Image 1">
+                            </div>
+                            <p class="text-center">Item4</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xs-9 p-0">
+                                <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                            </div>
+                            <div class="col-xs-3 p-0">
+                                <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse category-3-more">
+                    <div class="col-xs-12">
+                        <div class="row mb-30">
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Descrição</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item5</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Descrição</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item6</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Descrição</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item7</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div style="border: 3px solid gray;">
+                                    <div class="desc-container">
+                                        <div class="desc h-100 w-100 d-none" style="font-family: 'Bitwise', Fallback, sans-serif">
+                                            <p>Descrição</p>
+                                        </div>
+                                        <img class="w-100 desc-img" src="http://via.placeholder.com/206x155"
+                                             alt="Image 1">
+                                    </div>
+                                    <p class="text-center">Item8</p>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="col-xs-9 p-0">
+                                        <button class="w-100 buybtn" type="submit" (click)="Buy('...')">Comprar</button>
+                                    </div>
+                                    <div class="col-xs-3 p-0">
+                                        <input class="w-100 h-100" type="number" min="1" [(ngModel)]="item_amount">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <a href=".category-3-more" data-toggle="collapse">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row category-3-more collapse in">
+                    <div class="col-sm-12 text-center">
+                        <a href=".category-3-more" data-toggle="collapse">Mais</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div [hidden]="!submitted">
+        <div *ngIf="success==true">
+            <div class="alert alert-success" role="alert">
+                Compra realizada com sucesso!
+            </div>
+            <button (click)="submitted=false" class="btn btn-primary">Realizar outra Compra</button>
+        </div>
+        <div *ngIf="success==false">
+            <div class="alert alert-danger" role="alert">
+                Erro durante a compra.Motivo:{{out}}.
+            </div>
+            <button (click)="submitted=false" class="btn btn-primary">Refazer</button>
+        </div>
+    </div>
+
+</section>
